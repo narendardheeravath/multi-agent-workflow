@@ -1,0 +1,32 @@
+server:
+  port: 8082
+
+# ──────────────────────────────────────────────────────────────────────────────
+# LLM Provider Configuration
+# Set llm.provider to 'openai' or 'ollama'
+# Can be overridden via env var: LLM_PROVIDER=ollama
+# ──────────────────────────────────────────────────────────────────────────────
+llm:
+  provider: ollama     # 'openai' | 'ollama'
+
+  openai:
+    api-key: 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
+    model: ${OPENAI_MODEL:gpt-4o}
+    temperature: 0.7
+    timeout-seconds: 60
+
+  ollama:
+    base-url: ${OLLAMA_BASE_URL:http://localhost:11434}
+    model: ${OLLAMA_MODEL:llama3.2}
+    temperature: 0.7
+    timeout-seconds: 120
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /api-docs
+
+logging:
+  level:
+    com.example.multiagent: DEBUG
